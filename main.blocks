@@ -15,4 +15,4 @@ e 5 e e 5 5 5 5 5 4 e . . . . .
 4 5 4 e 5 5 5 5 e e . . . . . . 
 . 4 5 4 5 5 4 e . . . . . . . . 
 . . 4 4 e e e . . . . . . . . . 
-`</field><data>{"commentRefs":[],"fieldData":{"img":"G89Kv*p)SqV#Rp%n?=}L"}}</data></shadow></value><value name="kind"><shadow type="spritekind" id="1s~nNuEL=4[av|/C7pgP"><field name="MEMBER">Player</field></shadow></value></block></value></block></next></block></statement></block></xml>
+`</field><data>{"commentRefs":[],"fieldData":{"img":"G89Kv*p)SqV#Rp%n?=}L"}}</data></shadow></value><value name="kind"><shadow type="spritekind" id="1s~nNuEL=4[av|/C7pgP"><field name="MEMBER">Player</field></shadow></value></block></value><next><block type="controls_if" id="^uf(w]4+i*Q{c;[%a*aj"><mutation else="1"></mutation><value name="IF0"><shadow type="logic_boolean" id="X+0wj-(F9e3SYhZ26ug4"><field name="BOOL">TRUE</field></shadow></value></block></next></block></next></block></statement></block></xml>

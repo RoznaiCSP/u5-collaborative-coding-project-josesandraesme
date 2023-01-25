@@ -17,3 +17,8 @@ let mySprite = sprites.create(img`
     . 4 5 4 5 5 4 e . . . . . . . . 
     . . 4 4 e e e . . . . . . . . . 
     `, SpriteKind.Player)
+if (true) {
+	
+} else {
+	
+}

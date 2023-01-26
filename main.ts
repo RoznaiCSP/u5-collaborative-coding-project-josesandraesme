@@ -140,7 +140,7 @@ let mySprite = sprites.create(img`
     . . . . a a c c a a . . . . . . 
     `, SpriteKind.Player)
 mySprite.setPosition(78, 101)
-if (age >= 16) {
+if (age >= 18) {
 	
 } else {
 	

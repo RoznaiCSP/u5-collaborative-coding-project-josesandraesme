@@ -1,3 +1,28 @@
+function doSomething () {
+    projectile = sprites.createProjectileFromSide(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . 2 2 2 2 2 2 2 2 . . . . 
+        . . . 2 4 2 2 2 2 2 2 c 2 . . . 
+        . . 2 c 4 2 2 2 2 2 2 c c 2 . . 
+        . 2 c c 4 4 4 4 4 4 2 c c 4 2 d 
+        . 2 c 2 e e e e e e e b c 4 2 2 
+        . 2 2 e b b e b b b e e b 4 2 2 
+        . 2 e b b b e b b b b e 2 2 2 2 
+        . e e 2 2 2 e 2 2 2 2 2 e 2 2 2 
+        . e e e e e e f e e e f e 2 d d 
+        . e e e e e e f e e f e e e 2 d 
+        . e e e e e e f f f e e e e e e 
+        . e f f f f e e e e f f f e e e 
+        . . f f f f f e e f f f f f e . 
+        . . . f f f . . . . f f f f . . 
+        . . . . . . . . . . . . . . . . 
+        `, 50, 0)
+    projectile.setPosition(5, 15)
+    mySprite.setFlag(SpriteFlag.AutoDestroy, true)
+    pause(2000)
+}
+let projectile: Sprite = null
+let mySprite: Sprite = null
 scene.setBackgroundImage(img`
     7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
     7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
@@ -120,7 +145,7 @@ scene.setBackgroundImage(img`
     7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
     7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
     `)
-let mySprite = sprites.create(img`
+mySprite = sprites.create(img`
     . . . . . . . . . . 2 2 2 . . . 
     . . . . . . . . . . 2 2 2 . . . 
     . . . . . . . . . 1 1 1 1 1 . . 
@@ -141,3 +166,6 @@ let mySprite = sprites.create(img`
 mySprite.setPosition(74, 111)
 mySprite.setStayInScreen(true)
 controller.moveSprite(mySprite)
+for (let index = 0; index < 7; index++) {
+    doSomething()
+}

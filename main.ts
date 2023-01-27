@@ -139,3 +139,5 @@ let mySprite = sprites.create(img`
     . . . . . . 4 . 4 . . . . . . . 
     `, SpriteKind.Player)
 mySprite.setPosition(74, 111)
+mySprite.setStayInScreen(true)
+controller.moveSprite(mySprite)

@@ -17,9 +17,9 @@ function doSomething3 () {
         . . . f f f . . . . f f f f . . 
         . . . . . . . . . . . . . . . . 
         `, 50, 0)
-    projectile3.setPosition(5, 68)
+    projectile3.setPosition(5, 279)
     projectile3.setFlag(SpriteFlag.DestroyOnWall, true)
-    pause(1500)
+    pause(200)
 }
 // This functions loads projectiles of red car
 function doSomething () {
@@ -64,9 +64,9 @@ function doSomething2 () {
         . . . f f f . . . . f f f f . . 
         . . . . . . . . . . . . . . . . 
         `, 50, 0)
-    projectile2.setPosition(5, 35)
+    projectile2.setPosition(5, 310)
     projectile2.setFlag(SpriteFlag.DestroyOnWall, true)
-    pause(1000)
+    pause(100)
 }
 function doSomething4 () {
     projectile4 = sprites.createProjectileFromSide(img`
@@ -87,7 +87,7 @@ function doSomething4 () {
         . . . f f f . . . . f f f f . . 
         . . . . . . . . . . . . . . . . 
         `, 50, 0)
-    projectile4.setPosition(5, 95)
+    projectile4.setPosition(5, 342)
     projectile4.setFlag(SpriteFlag.DestroyOnWall, true)
     pause(1000)
 }
@@ -118,7 +118,7 @@ mySprite.setPosition(75, 380)
 scene.cameraFollowSprite(mySprite)
 for (let index = 0; index < 7; index++) {
     doSomething4()
-    doSomething3()
     doSomething2()
+    doSomething3()
     doSomething()
 }

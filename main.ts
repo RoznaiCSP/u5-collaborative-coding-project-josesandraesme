@@ -21,6 +21,15 @@ function doSomething3 () {
     projectile3.setFlag(SpriteFlag.DestroyOnWall, true)
     pause(200)
 }
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    mySprite.y += -16
+})
+controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    mySprite.x += -16
+})
+controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
+    mySprite.x += 16
+})
 // This functions loads projectiles of red car
 function doSomething () {
     projectile = sprites.createProjectileFromSide(img`
@@ -45,6 +54,9 @@ function doSomething () {
     projectile.setFlag(SpriteFlag.DestroyOnWall, true)
     pause(1000)
 }
+controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
+    mySprite.y += 16
+})
 function doSomething2 () {
     projectile2 = sprites.createProjectileFromSide(img`
         . . . . . . . . . . . . . . . . 
@@ -95,8 +107,9 @@ let projectile4: Sprite = null
 let projectile2: Sprite = null
 let projectile: Sprite = null
 let projectile3: Sprite = null
+let mySprite: Sprite = null
 tiles.setCurrentTilemap(tilemap`level1`)
-let mySprite = sprites.create(img`
+mySprite = sprites.create(img`
     . . . . . . . . . . 2 2 2 . . . 
     . . . . . . . . . . 2 2 2 . . . 
     . . . . . . . . . 1 1 1 1 1 . . 

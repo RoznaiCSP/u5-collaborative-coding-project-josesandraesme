@@ -129,7 +129,7 @@ mySprite = sprites.create(img`
     `, SpriteKind.Player)
 mySprite.setPosition(75, 380)
 scene.cameraFollowSprite(mySprite)
-for (let index = 0; index < 7; index++) {
+for (let index = 0; index < 10; index++) {
     doSomething4()
     doSomething2()
     doSomething3()

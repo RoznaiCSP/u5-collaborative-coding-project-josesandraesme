@@ -114,7 +114,7 @@ let mySprite = sprites.create(img`
     . . . . . . 4 . 4 . . . . . . . 
     . . . . . . 4 . 4 . . . . . . . 
     `, SpriteKind.Player)
-mySprite.setPosition(74, 380)
+mySprite.setPosition(75, 380)
 scene.cameraFollowSprite(mySprite)
 for (let index = 0; index < 7; index++) {
     doSomething4()

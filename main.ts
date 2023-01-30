@@ -158,6 +158,6 @@ game.onUpdateInterval(500, function () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.Player)
-    mySprite.setVelocity(50, 0)
-    tiles.placeOnRandomTile(mySprite, assets.tile`myTile10`)
+    log.setVelocity(50, 0)
+    tiles.placeOnRandomTile(log, assets.tile`myTile10`)
 })

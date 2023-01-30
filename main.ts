@@ -1,3 +1,6 @@
+namespace SpriteKind {
+    export const log = SpriteKind.create()
+}
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     mySprite.y += -16
 })
@@ -18,6 +21,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     game.gameOver(false)
     music.play(music.melodyPlayable(music.powerDown), music.PlaybackMode.InBackground)
 })
+let log: Sprite = null
 let car4: Sprite = null
 let car3: Sprite = null
 let car2: Sprite = null
@@ -46,7 +50,7 @@ mySprite.setPosition(75, 380)
 scene.cameraFollowSprite(mySprite)
 // game over if sprite touches "water"
 game.onUpdate(function () {
-    if (mySprite.tileKindAt(TileDirection.Center, assets.tile`myTile10`)) {
+    if (mySprite.tileKindAt(TileDirection.Center, assets.tile`myTile10`) && false) {
         game.gameOver(false)
     }
 })
@@ -134,4 +138,28 @@ game.onUpdateInterval(750, function () {
     car4.setVelocity(50, 0)
     tiles.placeOnRandomTile(car4, assets.tile`myTile3`)
     car4.setFlag(SpriteFlag.DestroyOnWall, true)
+})
+game.onUpdateInterval(500, function () {
+    if (Math.percentChance(50)) {
+        log = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . e e e e e e e e e e e e e e . 
+            . e e e e e e e e e e e e e e . 
+            . e e e e e e e e e e e e e e . 
+            . e e e e e e e e e e e e e e . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.log)
+        log.setVelocity(-50, 0)
+        tiles.placeOnRandomTile(log, assets.tile`myTile10`)
+    }
 })

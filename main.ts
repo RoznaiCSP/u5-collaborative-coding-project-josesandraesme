@@ -19,7 +19,7 @@ function doSomething3 () {
         `, 50, 0)
     projectile3.setPosition(5, 279)
     projectile3.setFlag(SpriteFlag.DestroyOnWall, true)
-    pause(200)
+    pause(100)
 }
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     mySprite.y += -16
@@ -54,9 +54,9 @@ function doSomething () {
         . . . f f f . . . . f f f f . . 
         . . . . . . . . . . . . . . . . 
         `, 50, 0)
-    projectile.setPosition(5, 15)
+    projectile.setPosition(5, 245)
     projectile.setFlag(SpriteFlag.DestroyOnWall, true)
-    pause(1000)
+    pause(200)
 }
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     mySprite.y += 16
@@ -86,7 +86,7 @@ function doSomething2 () {
         `, 50, 0)
     projectile2.setPosition(5, 310)
     projectile2.setFlag(SpriteFlag.DestroyOnWall, true)
-    pause(100)
+    pause(2000)
 }
 function doSomething4 () {
     projectile4 = sprites.createProjectileFromSide(img`
@@ -111,6 +111,7 @@ function doSomething4 () {
     projectile4.setFlag(SpriteFlag.DestroyOnWall, true)
     pause(1000)
 }
+let car: Sprite = null
 let projectile4: Sprite = null
 let projectile2: Sprite = null
 let projectile: Sprite = null
@@ -137,9 +138,27 @@ mySprite = sprites.create(img`
     `, SpriteKind.Player)
 mySprite.setPosition(75, 380)
 scene.cameraFollowSprite(mySprite)
-for (let index = 0; index < 7; index++) {
-    doSomething4()
-    doSomething2()
-    doSomething3()
-    doSomething()
-}
+game.onUpdateInterval(500, function () {
+    if (Math.percentChance(50)) {
+        car = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . 3 3 3 3 3 3 3 3 . . . . . . 
+            . 3 d 3 3 3 3 3 3 c 3 . . . . . 
+            3 c d 3 3 3 3 3 3 c c 3 . . . . 
+            c c d d d d d d 3 c c d 3 d . . 
+            c 3 a a a a a a a b c d 3 3 d . 
+            3 a b b a b b b a a b d 3 3 3 . 
+            a b b b a b b b b a 3 3 3 3 3 . 
+            a 3 3 3 a 3 3 3 3 3 a 3 3 3 3 . 
+            a a a a a f a a a f a 3 d d 3 . 
+            a a a a a f a a f a a a 3 d d . 
+            a a a a a f f f a a a a a a a . 
+            f f f f a a a a f f f a a a a . 
+            f f f f f a a f f f f f a . . . 
+            . f f f . . . . f f f f . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Enemy)
+        car.setVelocity(50, 0)
+        tiles.placeOnRandomTile(car, sprites.vehicle.roadHorizontal)
+    }
+})

@@ -21,6 +21,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     game.gameOver(false)
     music.play(music.melodyPlayable(music.powerDown), music.PlaybackMode.InBackground)
 })
+let log: Sprite = null
 let car4: Sprite = null
 let car3: Sprite = null
 let car2: Sprite = null
@@ -137,4 +138,26 @@ game.onUpdateInterval(750, function () {
     car4.setVelocity(50, 0)
     tiles.placeOnRandomTile(car4, assets.tile`myTile3`)
     car4.setFlag(SpriteFlag.DestroyOnWall, true)
+})
+game.onUpdateInterval(500, function () {
+    log = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . d d e e e e e e e e e e e . . 
+        . d d e e e e e e e e e e e . . 
+        . d d e e e e e e e e e e e . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Player)
+    mySprite.setVelocity(50, 0)
+    tiles.placeOnRandomTile(mySprite, assets.tile`myTile10`)
 })

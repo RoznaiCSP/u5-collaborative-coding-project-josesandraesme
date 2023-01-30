@@ -61,9 +61,6 @@ function doSomething () {
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     mySprite.y += 16
 })
-scene.onOverlapTile(SpriteKind.Player, sprites.castle.tileDarkGrass2, function (sprite, location) {
-    game.gameOver(true)
-})
 function doSomething2 () {
     projectile2 = sprites.createProjectileFromSide(img`
         . . . . . . . . . . . . . . . . 

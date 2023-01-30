@@ -30,6 +30,9 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     mySprite.x += 16
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
+    game.gameOver(false)
+})
 // This functions loads projectiles of red car
 function doSomething () {
     projectile = sprites.createProjectileFromSide(img`

@@ -21,6 +21,9 @@ function doSomething3 () {
     projectile3.setFlag(SpriteFlag.DestroyOnWall, true)
     pause(1500)
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
+    game.gameOver(false)
+})
 // This functions loads projectiles of red car
 function doSomething () {
     projectile = sprites.createProjectileFromSide(img`

@@ -44,6 +44,12 @@ mySprite = sprites.create(img`
     `, SpriteKind.Player)
 mySprite.setPosition(75, 380)
 scene.cameraFollowSprite(mySprite)
+// game over if sprite touches "water"
+game.onUpdate(function () {
+    if (mySprite.tileKindAt(TileDirection.Center, assets.tile`myTile10`)) {
+        game.gameOver(false)
+    }
+})
 game.onUpdateInterval(750, function () {
     car = sprites.create(img`
         . . . . . . . . . . . . . . . . 
@@ -88,19 +94,19 @@ game.onUpdateInterval(750, function () {
     tiles.placeOnRandomTile(car2, assets.tile`myTile0`)
     car3 = sprites.create(img`
         . . . . . . . . . . . . . . . . 
-        . . . . 2 2 2 2 2 2 2 2 . . . . 
-        . . . 2 4 2 2 2 2 2 2 c 2 . . . 
-        . . 2 c 4 2 2 2 2 2 2 c c 2 . . 
-        . 2 c c 4 4 4 4 4 4 2 c c 4 2 d 
-        . 2 c 2 e e e e e e e b c 4 2 2 
-        . 2 2 e b b e b b b e e b 4 2 2 
-        . 2 e b b b e b b b b e 2 2 2 2 
-        . e e 2 2 2 e 2 2 2 2 2 e 2 2 2 
-        . e e e e e e f e e e f e 2 d d 
-        . e e e e e e f e e f e e e 2 d 
-        . e e e e e e f f f e e e e e e 
-        . e f f f f e e e e f f f e e e 
-        . . f f f f f e e f f f f f e . 
+        . . . . 3 3 3 3 3 3 3 3 . . . . 
+        . . . 3 d 3 3 3 3 3 3 c 3 . . . 
+        . . 3 c d 3 3 3 3 3 3 c c 3 . . 
+        . 3 c c d d d d d d 3 c c d 3 d 
+        . 3 c 3 a a a a a a a b c d 3 3 
+        . 3 3 a b b a b b b a a b d 3 3 
+        . 3 a b b b a b b b b a 3 3 3 3 
+        . a a 3 3 3 a 3 3 3 3 3 a 3 3 3 
+        . a a a a a a f a a a f a 3 d d 
+        . a a a a a a f a a f a a a 3 d 
+        . a a a a a a f f f a a a a a a 
+        . a f f f f a a a a f f f a a a 
+        . . f f f f f a a f f f f f a . 
         . . . f f f . . . . f f f f . . 
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.Enemy)
@@ -109,19 +115,19 @@ game.onUpdateInterval(750, function () {
     car3.setFlag(SpriteFlag.DestroyOnWall, true)
     car4 = sprites.create(img`
         . . . . . . . . . . . . . . . . 
-        . . . . 2 2 2 2 2 2 2 2 . . . . 
-        . . . 2 4 2 2 2 2 2 2 c 2 . . . 
-        . . 2 c 4 2 2 2 2 2 2 c c 2 . . 
-        . 2 c c 4 4 4 4 4 4 2 c c 4 2 d 
-        . 2 c 2 e e e e e e e b c 4 2 2 
-        . 2 2 e b b e b b b e e b 4 2 2 
-        . 2 e b b b e b b b b e 2 2 2 2 
-        . e e 2 2 2 e 2 2 2 2 2 e 2 2 2 
-        . e e e e e e f e e e f e 2 d d 
-        . e e e e e e f e e f e e e 2 d 
-        . e e e e e e f f f e e e e e e 
-        . e f f f f e e e e f f f e e e 
-        . . f f f f f e e f f f f f e . 
+        . . . . 5 5 5 5 5 5 5 5 . . . . 
+        . . . 5 4 5 5 5 5 5 5 c 5 . . . 
+        . . 5 c 4 5 5 5 5 5 5 c c 5 . . 
+        . 5 c c 4 4 4 4 4 4 5 c c 4 5 d 
+        . 5 c 5 e e e e e e e b c 4 5 5 
+        . 5 5 e b b e b b b e e b 4 5 5 
+        . 5 5 b b b e b b b b e 5 5 5 5 
+        . 5 5 4 4 4 e 4 4 4 4 4 5 5 5 5 
+        . 5 5 5 5 5 5 f 5 5 5 f 5 5 4 4 
+        . 5 5 5 5 5 5 f 5 5 f 5 5 5 5 4 
+        . 5 5 5 5 5 5 f f f 5 5 5 5 5 5 
+        . 5 f f f f 5 5 5 5 f f f 5 5 5 
+        . . f f f f f 5 5 f f f f f 5 . 
         . . . f f f . . . . f f f f . . 
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.Enemy)

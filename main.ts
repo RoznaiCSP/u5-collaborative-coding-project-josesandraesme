@@ -32,6 +32,7 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
     game.gameOver(false)
+    music.play(music.melodyPlayable(music.powerDown), music.PlaybackMode.InBackground)
 })
 // This functions loads projectiles of red car
 function doSomething () {
